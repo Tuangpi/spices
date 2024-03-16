@@ -1,8 +1,13 @@
 import { Link } from "react-router-dom";
 import hero from "../../../assets/hero.jpg";
 import Content from "./Content";
+import { useEffect } from "react";
 
 const Home = () => {
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
+
   return (
     <main className="font-Montserrat">
       <header className="relative text-center">
@@ -12,8 +17,8 @@ const Home = () => {
           className="w-full h-[38rem] object-cover bg-center"
         />
         <div className="absolute top-[50%] left-[50%] bg-black -translate-x-[50%] -translate-y-[50%] inset-0  opacity-35 w-full h-full"></div>
-        <div className="uppercase text-white font-medium w-full absolute opacity-100 inset-0 flex justify-center items-center text-3xl">
-          <h2 className="px-3 py-2 rounded-md inline-block text-blue-50">
+        <div className="uppercase font-semibold w-full absolute opacity-100 inset-0 flex justify-center items-center text-3xl">
+          <h2 className="px-3 py-2 rounded-md inline-block text-blue-100">
             Welcome to the Spice Kingdom of Myanmar
           </h2>
         </div>

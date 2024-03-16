@@ -10,7 +10,7 @@ const ContentDetail = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
   return (
-    <section className="w-11/12 sm:w-3/4 md:w-2/3 lg:w-1/2 m-auto font-Montserrat">
+    <section className="w-11/12 sm:w-3/4 md:w-2/3 lg:w-1/2 m-auto font-Montserrat mt-5">
       {location.state && (
         <div>
           <h4 className="font-medium text-2xl mt-4 sm:mt-0">

@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import recepes1 from "../../../assets/1.jpg";
+import { useEffect } from "react";
 
 const items = [
   {
@@ -25,8 +26,12 @@ const items = [
 const Recipes = () => {
   const navigate = useNavigate();
 
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
+
   return (
-    <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-8 gap-y-8 w-[90%] m-auto sm:w-[86%] font-Montserrat">
+    <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-8 gap-y-8 w-[90%] m-auto sm:w-[86%] mt-5 font-Montserrat">
       {items?.map((item, index) => (
         <div
           className="rounded-b-md border border-slate-100 shadow-md mt-4 cursor-pointer hover:border-slate-200 hover:scale-105 transition-all ease-in duration-200 mb-20"

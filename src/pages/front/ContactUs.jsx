@@ -21,7 +21,7 @@ const ContactUs = () => {
     });
   };
   return (
-    <section className="font-Montserrat">
+    <section className="font-Montserrat mt-5">
       <form
         onSubmit={handleSubmit}
         className="w-[90%] m-auto sm:w-[86%] sm:max-w-md"

@@ -1,5 +1,7 @@
-import { useLocation, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import recepes1 from "../../../assets/1.jpg";
+import React, { useEffect } from "react";
+import BreadCrumb from "../../../component/BreadCrumb";
 
 const detail = [
   {
@@ -214,33 +216,47 @@ const detail = [
 
 const RecipeDetail = () => {
   const param = useParams();
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
+
   return (
-    <section className="w-[90%] m-auto sm:w-[88%] md:w-[85%] lg:w-[80%] font-Montserrat">
+    <section className="w-[90%] m-auto sm:w-[88%] md:w-[85%] lg:w-[80%] font-Montserrat mt-5">
+      <BreadCrumb data={[{ link: "/recipes", name: "Recipes" }]} />
       {param.id && (
         <>
-          <div>{detail[param.id].title}</div>
-          <div>{detail[param.id].title_pre}</div>
-          <div>
-            <img src={detail[param.id].img} />
+          <h2 className="font-semibold text-xl">{detail[param.id].title}</h2>
+          <p className="mt-2">{detail[param.id].title_pre}</p>
+          <div className="mt-5 aspect-video object-cover">
+            <img src={detail[param.id].img} className="object-cover" />
           </div>
-          <h2>{detail[param.id].ingredient}</h2>
+          <h3 className="mt-4 text-slate-600 font-medium text-lg">
+            {detail[param.id].ingredient}
+          </h3>
 
           {detail[param.id].ingredient_list?.map((ingredient, index) => (
             <div key={index}>
-              <h3>{ingredient.title}</h3>
-              <ul>
+              <h3 className="mt-3 font-semibold">{ingredient.title}</h3>
+              <ul className="list-disc mt-1">
                 {ingredient.ingredients.map((l, index) => (
-                  <li key={index}>{l}</li>
+                  <React.Fragment key={index}>
+                    <li className="ml-7 mt-0.5">{l}</li>
+                  </React.Fragment>
                 ))}
               </ul>
             </div>
           ))}
-          <h2>{detail[param.id].instruction}</h2>
+          <h3 className="mt-4 font-medium text-slate-600 text-lg">
+            {detail[param.id].instruction}
+          </h3>
           {detail[param.id].instruction_list.map((instruction, i) => (
             <div key={i}>
-              <h3>{instruction.title}</h3>
+              <h4 className="mt-3 font-medium">{instruction.title}</h4>
               {instruction.instruction_p.map((ins, i) => (
-                <p key={i}>{ins}</p>
+                <React.Fragment key={i}>
+                  <p className="mt-1">{ins}</p>
+                </React.Fragment>
               ))}
             </div>
           ))}

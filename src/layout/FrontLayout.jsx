@@ -7,15 +7,6 @@ const FrontLayout = () => {
   const [humburgerMenu, setHumburgerMenu] = useState(false);
   const navigate = useNavigate();
 
-  const scrollToSection = (event, sectionId) => {
-    event.preventDefault();
-    const section = document.getElementById(sectionId);
-    const yOffset = -32;
-    const y = section.getBoundingClientRect().top + window.scrollY + yOffset;
-
-    window.scrollTo({ top: y, behavior: "smooth" });
-  };
-
   const gotoMenu = (url) => {
     setHumburgerMenu(false);
     navigate(url);

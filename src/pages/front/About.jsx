@@ -1,9 +1,13 @@
+import { useEffect } from "react";
 import about from "../../assets/about.jpg";
 
 const About = () => {
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
   return (
     <div className="w-[90%] m-auto sm:w-[86%] font-Montserrat">
-      <h1 className="font-semibold text-xl md:text-3xl text-center mb-8">
+      <h1 className="font-semibold text-xl md:text-3xl text-center my-4 md:my-6 lg:my-7">
         About Myanmar Spices
       </h1>
       <div className="relative">

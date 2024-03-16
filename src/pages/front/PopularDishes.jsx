@@ -1,4 +1,6 @@
+import { useEffect } from "react";
 import pic4 from "../../assets/test.jpeg";
+import BreadCrumb from "../../component/BreadCrumb";
 
 const PopularDishes = () => {
   const contents = [
@@ -75,29 +77,35 @@ const PopularDishes = () => {
         "Mont Lin Ma Yar is a popular Burmese dessert made from sticky rice flour, coconut milk, and palm sugar. It’s steamed in banana leaves, resulting in a soft, sweet, and aromatic cake that’s often enjoyed as a snack or dessert.",
     },
   ];
-
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
   return (
-    <section className="w-[90%] m-auto sm:w-[83%] font-Montserrat">
+    <section className="w-[90%] m-auto sm:w-[83%] font-Montserrat mt-12">
       {contents?.map((content, index) => (
         <div key={index}>
           {index % 2 === 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-11 w-full gap-x-10 mt-6 md:mt-20">
-              <div className="flex items-center justify-center md:col-span-5">
+            <div
+              className={`grid grid-cols-1 md:grid-cols-2 w-full gap-x-16 ${
+                index == 0 ? "mt-0" : "mt-6 md:mt-12"
+              }`}
+            >
+              <div className="flex items-center justify-center md:col-span-1">
                 <img
                   src={content.img}
                   className="object-cover max-w-full rounded-md"
                 />
               </div>
-              <div className="md:col-span-6 mt-3.5 md:mt-0">
+              <div className="md:col-span-1 mt-3.5 md:mt-0">
                 <p>{content.content}</p>
               </div>
             </div>
           ) : (
-            <div className="flex flex-col-reverse md:grid md:grid-cols-11 w-full gap-x-10  mt-6 md:mt-24">
-              <div className="md:col-span-6 mt-3.5 md:mt-0">
+            <div className="flex flex-col-reverse md:grid md:grid-cols-2 w-full gap-x-14  mt-6 md:mt-16">
+              <div className="md:col-span-1 mt-3.5 md:mt-0">
                 <p>{content.content}</p>
               </div>
-              <div className="flex items-center justify-center md:col-span-5">
+              <div className="flex items-center justify-center md:col-span-1">
                 <img
                   src={content.img}
                   className="object-cover max-w-full rounded-md"
