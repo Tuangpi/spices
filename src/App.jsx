@@ -5,18 +5,19 @@ import {
   createRoutesFromElements,
 } from "react-router-dom";
 import FrontLayout from "./layout/FrontLayout";
-import Home from "./pages/home/Home";
-import ContentDetail from "./pages/home/ContentDetail";
-import About from "./pages/About";
-import PopularDishes from "./pages/PopularDishes";
-import ContactUs from "./pages/ContactUs";
-import CategoryContent from "./pages/home/CategoryContent";
-import AdminLayout from "./layout/AdminLayout";
+import Home from "./pages/front/home/Home";
+import ContentDetail from "./pages/front/home/ContentDetail";
+import CategoryContent from "./pages/front/home/CategoryContent";
+import About from "./pages/front/About";
+import PopularDishes from "./pages/front/PopularDishes";
+import ContactUs from "./pages/front/ContactUs";
 import Login from "./pages/admin/Login";
+import AdminLayout from "./layout/AdminLayout";
 import Dashboard from "./pages/admin/Dashboard";
-import CreatePost from "./pages/admin/Post/CreatePost";
-import Recipes from "./pages/Recipes";
 import PostList from "./pages/admin/Post/PostList";
+import CreatePost from "./pages/admin/Post/CreatePost";
+import Recipes from "./pages/front/Recipe/Recipes";
+import RecipeDetail from "./pages/front/Recipe/RecipeDetail";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -28,6 +29,7 @@ const router = createBrowserRouter(
         <Route path="/about" element={<About />} />
         <Route path="/popular-dishes" element={<PopularDishes />} />
         <Route path="/recipes" element={<Recipes />} />
+        <Route path="/recipes/detail/:id" element={<RecipeDetail />} />
         <Route path="/contact-us" element={<ContactUs />} />
       </Route>
 

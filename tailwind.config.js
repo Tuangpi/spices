@@ -9,6 +9,9 @@ export default {
       fontFamily: {
         Montserrat: ["Montserrat"],
         "main-header": ["Pacifico"]
+      },
+      backgroundColor: {
+        "secondary": "#F1F2F4"
       }
     },
   },
