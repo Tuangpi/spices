@@ -23,13 +23,13 @@ const ContentDetail = () => {
               className="w-full h-full object-cover"
             />
           </div>
-          <div className="w-full m-auto mt-4">
+          {/* <div className="w-full m-auto mt-4">
             <img src={ads1} alt="ads1" className="w-full" />
-          </div>
+          </div> */}
           <p className="text-lg font-light mt-5">{location.state.detail}</p>
-          <div className="w-full m-auto mt-5">
+          {/* <div className="w-full m-auto mt-5">
             <img src={ads2} alt="ads1" className="w-full" />
-          </div>
+          </div> */}
         </div>
       )}
     </section>

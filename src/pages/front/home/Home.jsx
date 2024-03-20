@@ -78,6 +78,7 @@ const Home = () => {
           </Link>
         </div>
       </section>
+
       <div className="bg-slate-100 h-0.5 rounded-full my-6 mt-8 w-5/6 m-auto md:w-5/6"></div>
       <Content />
     </main>

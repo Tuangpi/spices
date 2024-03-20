@@ -2,16 +2,22 @@ import { faEye, faEyeSlash } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { doSignInWithEmailAndPassword } from "../../firebase/auth";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleLogin = (e) => {
     e.preventDefault();
-    navigate("/admin/dashboard");
+    setLoading(true);
+    doSignInWithEmailAndPassword(email, password).then((res) => {
+      setLoading(false);
+      navigate("/admin/dashboard");
+    });
   };
 
   return (
@@ -51,10 +57,12 @@ const Login = () => {
           </button>
         </div>
         <button
-          type="submit"
-          className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+          type={`${loading ? "button" : "submit"}`}
+          className={`${
+            loading ? "animate-pulse" : ""
+          } bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600`}
         >
-          Login
+          {loading ? "Authenticating..." : "Login"}
         </button>
       </form>
     </div>

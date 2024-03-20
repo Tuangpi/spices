@@ -9,9 +9,14 @@ const PostList = () => {
   const navigate = useNavigate();
   return (
     <div className="overflow-x-auto">
-      <div>
-        <div className="text-xl font-medium mb-5">Post List</div>
-        <div onClick={() => navigate("/admin/create-post")}>Create Post</div>
+      <div className="text-xl font-medium mb-5">Post List</div>
+      <div className="flex justify-end items-center mb-2">
+        <button
+          onClick={() => navigate("/admin/create-post")}
+          className="bg-blue-500 text-white px-2 py-1 rounded-md outline-none"
+        >
+          Create Post
+        </button>
       </div>
       <table className="table-auto border-collapse w-full">
         <thead>

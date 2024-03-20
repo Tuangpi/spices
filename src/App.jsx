@@ -18,6 +18,10 @@ import PostList from "./pages/admin/Post/PostList";
 import CreatePost from "./pages/admin/Post/CreatePost";
 import Recipes from "./pages/front/Recipe/Recipes";
 import RecipeDetail from "./pages/front/Recipe/RecipeDetail";
+import MovieLink from "./pages/front/Recipe/MovieLink";
+import RequiredAuth from "./component/RequiredAuth";
+import NotFound from "./component/NotFound";
+import AuthRedirect from "./component/AuthRedirect";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -29,17 +33,34 @@ const router = createBrowserRouter(
         <Route path="/about" element={<About />} />
         <Route path="/popular-dishes" element={<PopularDishes />} />
         <Route path="/recipes" element={<Recipes />} />
+
+        <Route
+          path="/recipes/detail/:id/:embedLink"
+          element={<RecipeDetail />}
+        />
+        <Route
+          path="/recipes/detail/:id/:embedLink/:downloadLink"
+          element={<RecipeDetail />}
+        />
         <Route path="/recipes/detail/:id" element={<RecipeDetail />} />
+        <Route path="/movie-link" element={<MovieLink />} />
+
         <Route path="/contact-us" element={<ContactUs />} />
       </Route>
 
-      <Route path="/admin/login" element={<Login />} />
-
-      <Route path="/admin/" element={<AdminLayout />}>
-        <Route path="dashboard" element={<Dashboard />} />
-        <Route path="post-list" element={<PostList />} />
-        <Route path="create-post" element={<CreatePost />} />
+      <Route element={<AuthRedirect />}>
+        <Route path="/admin/login" element={<Login />} />
       </Route>
+
+      <Route element={<RequiredAuth />}>
+        <Route path="/admin/" element={<AdminLayout />}>
+          <Route path="dashboard" element={<Dashboard />} />
+          <Route path="post-list" element={<PostList />} />
+          <Route path="create-post" element={<CreatePost />} />
+        </Route>
+      </Route>
+
+      <Route path="*" element={<NotFound />} />
     </Route>
   )
 );

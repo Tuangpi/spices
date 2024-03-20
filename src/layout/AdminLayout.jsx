@@ -1,17 +1,18 @@
 import { useState } from "react";
 import { Link, Outlet, useNavigate } from "react-router-dom";
+import { doSignOut } from "../firebase/auth";
 
 const AdminLayout = () => {
   const [dropDown, setDropDown] = useState(false);
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    navigate("/admin/login");
+    doSignOut().then((res) => navigate("/admin/login"));
   };
 
   return (
-    <div className="flex font-Montserrat text-sm">
-      <div className="bg-gray-800 text-white hidden md:block md:w-1/4 lg:w-1/6 py-8 px-4 overflow-y-auto">
+    <div className="flex items-start justify-between font-Montserrat text-sm">
+      <div className="sticky top-0 left-0 h-screen overflow-y-auto bg-gray-800 text-white hidden md:block md:w-1/4 lg:w-1/6 py-8 px-4">
         {/* Sidebar content */}
         <h1 className="text-2xl font-bold mb-8">Admin Panel</h1>
         <ul>
@@ -31,10 +32,18 @@ const AdminLayout = () => {
               Post
             </Link>
           </li>
+          <li className="mb-4">
+            <Link
+              to="/admin/post-link"
+              className="block w-full py-2 px-4 text-gray-300 hover:text-white hover:bg-gray-700"
+            >
+              Post Link
+            </Link>
+          </li>
         </ul>
       </div>
 
-      <div className="flex-1 bg-gray-100">
+      <div className="w-full md:w-3/4 lg:w-5/6 bg-white">
         <nav className="flex justify-between items-center bg-white p-3.5 shadow">
           <div>
             {/* Logo */}
