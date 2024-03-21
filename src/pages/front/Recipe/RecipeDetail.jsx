@@ -17,7 +17,7 @@ const RecipeDetail = () => {
     const docSnap = await getDoc(docRef);
 
     setRecipe(docSnap.data());
-    setLoading(true);
+    setLoading(false);
   };
 
   useEffect(() => {
@@ -28,17 +28,16 @@ const RecipeDetail = () => {
   return (
     <section className="w-[90%] m-auto sm:w-[88%] md:w-[85%] lg:w-[80%] font-Montserrat mt-5">
       <BreadCrumb data={[{ link: "/recipes", name: "Recipes" }]} />
-      {recipe && (
-        <>
-          {!loading && (
-            <>
-              <h2 className="font-semibold text-xl">{recipe.title}</h2>
-              <div dangerouslySetInnerHTML={{ __html: recipe.content }} />
-            </>
-          )}
-          {loading && <Loading type="spin" className="w-full text-red-500" />}
-        </>
-      )}
+      <>
+        {!loading && recipe && (
+          <>
+            <h2 className="font-semibold text-xl">{recipe.title}</h2>
+            <div></div>
+            <div dangerouslySetInnerHTML={{ __html: recipe.content }} />
+          </>
+        )}
+        {loading && <Loading type="spin" className="w-full text-red-500" />}
+      </>
     </section>
   );
 };
