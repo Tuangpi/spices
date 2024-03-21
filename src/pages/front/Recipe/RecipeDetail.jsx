@@ -7,7 +7,7 @@ import { db } from "../../../firebase/firebase";
 import Loading from "react-loading";
 
 const RecipeDetail = () => {
-  const { id, embedLink, downloadLink } = useParams();
+  const { id, downloadLink } = useParams();
   const [recipe, setRecipe] = useState(null);
   const [loading, setLoading] = useState(false);
 
@@ -32,7 +32,19 @@ const RecipeDetail = () => {
         {!loading && recipe && (
           <>
             <h2 className="font-semibold text-xl">{recipe.title}</h2>
-            <div></div>
+            <p className="mt-2 mb-4">{recipe.firstParagraph}</p>
+            {downloadLink && (
+              <Link to="/movie-link" state={downloadLink}>
+                Click Here
+              </Link>
+            )}
+            <div className="aspect-video object-cover">
+              <img
+                src={recepes1}
+                className="object-cover rounded-md"
+                alt="recipes_img"
+              />
+            </div>
             <div dangerouslySetInnerHTML={{ __html: recipe.content }} />
           </>
         )}

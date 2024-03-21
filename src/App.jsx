@@ -35,11 +35,7 @@ const router = createBrowserRouter(
         <Route path="/recipes" element={<Recipes />} />
 
         <Route
-          path="/recipes/detail/:id/:embedLink"
-          element={<RecipeDetail />}
-        />
-        <Route
-          path="/recipes/detail/:id/:embedLink/:downloadLink"
+          path="/recipes/detail/:id/:downloadLink"
           element={<RecipeDetail />}
         />
         <Route path="/recipes/detail/:id" element={<RecipeDetail />} />

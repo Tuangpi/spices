@@ -9,6 +9,7 @@ const CreatePost = () => {
   const editor = useRef(null);
   const [content, setContent] = useState("");
   const [title, setTitle] = useState("");
+  const [firstPara, setFirstPara] = useState("");
   const [featureImage, setFeatureImage] = useState(null);
   const [loading, setLoading] = useState(false);
 
@@ -26,6 +27,7 @@ const CreatePost = () => {
             addDoc(collection(db, "recipes"), {
               title,
               content,
+              firstParagraph: firstPara,
             })
               .then((res) => setLoading(false))
               .catch((err) => setLoading(false));
@@ -80,39 +82,20 @@ const CreatePost = () => {
               className="w-full border border-slate-600 rounded px-3 py-2 text-sm sm:text-base"
             />
           </div>
-          <div className="flex items-center justify-between mt-4 gap-x-4">
-            <div className="w-full">
-              <label
-                htmlFor="embed-video-link"
-                className="block text-lg font-medium mb-1.5"
-              >
-                Embed Video Link
-              </label>
-              <input
-                type="text"
-                id="embed-video-link"
-                autoFocus
-                required
-                placeholder="Embed Video Link"
-                className="w-full border border-slate-600 rounded px-3 py-2 text-sm sm:text-base"
-              />
-            </div>
-            <div className="w-full">
-              <label
-                htmlFor="download-video-link"
-                className="block text-lg font-medium mb-1.5"
-              >
-                Download Video Link
-              </label>
-              <input
-                type="text"
-                id="down-video-link"
-                autoFocus
-                required
-                placeholder="Download Video Link"
-                className="w-full border border-slate-600 rounded px-3 py-2 text-sm sm:text-base"
-              />
-            </div>
+          <div className="flex flex-col justify-center mt-4">
+            <label htmlFor="first" className="block text-lg font-medium mb-1.5">
+              First Paragraph
+            </label>
+            <input
+              type="text"
+              id="first"
+              value={firstPara}
+              autoFocus
+              onChange={(e) => setFirstPara(e.target.value)}
+              required
+              placeholder="First Paragraph"
+              className="w-full border border-slate-600 rounded px-3 py-2 text-sm sm:text-base"
+            />
           </div>
           <div className="flex flex-col justify-center mt-4">
             <label
