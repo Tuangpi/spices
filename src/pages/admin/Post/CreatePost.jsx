@@ -33,7 +33,10 @@ const CreatePost = () => {
               content,
               firstParagraph: firstPara,
             })
-              .then((res) => setLoading(false))
+              .then((res) => {
+                setLoading(false);
+                navigate("/admin/post-list");
+              })
               .catch((err) => setLoading(false));
           })
           .catch((error) => {
@@ -42,7 +45,6 @@ const CreatePost = () => {
           });
       };
       reader.readAsArrayBuffer(featureImage);
-      navigate("/admin/post-list");
     }
   };
 

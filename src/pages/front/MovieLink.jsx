@@ -1,4 +1,4 @@
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const MovieLink = () => {
   const { state } = useLocation();
@@ -15,13 +15,13 @@ const MovieLink = () => {
         />
       </div>
       {state && (
-        <a
-          href={`https://d000d.com/d/${state}`}
-          target="_blank"
+        <Link
+          to="/watch-movie"
+          state={`https://d000d.com/d/${state}`}
           className="bg-blue-500 px-2 py-1 outline-none rounded-md text-white block w-full text-center"
         >
           Download
-        </a>
+        </Link>
       )}
       <div className="mt-8 text-center">
         <h2 className="text-xl font-medium mb-4">Advertisement</h2>

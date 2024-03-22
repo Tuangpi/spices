@@ -27,7 +27,7 @@ const RecipeDetail = () => {
   }, []);
 
   return (
-    <section className="w-[90%] m-auto sm:w-[88%] md:w-[85%] lg:w-[80%] font-Montserrat mt-5">
+    <section className="w-[90%] m-auto sm:w-[88%] md:w-[85%] lg:w-[80%] font-Montserrat min-h-96 mt-5">
       <BreadCrumb data={[{ link: "/recipes", name: "Recipes" }]} />
       <>
         {!loading && recipe && (

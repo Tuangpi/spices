@@ -18,12 +18,13 @@ import PostList from "./pages/admin/Post/PostList";
 import CreatePost from "./pages/admin/Post/CreatePost";
 import Recipes from "./pages/front/Recipe/Recipes";
 import RecipeDetail from "./pages/front/Recipe/RecipeDetail";
-import MovieLink from "./pages/front/Recipe/MovieLink";
 import RequiredAuth from "./component/RequiredAuth";
 import NotFound from "./component/NotFound";
 import AuthRedirect from "./component/AuthRedirect";
 import UploadMovie from "./pages/admin/Movie/UploadMovie";
 import MovieList from "./pages/admin/Movie/MovieList";
+import WatchMovie from "./pages/front/WatchMovie";
+import MovieLink from "./pages/front/MovieLink";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -41,10 +42,11 @@ const router = createBrowserRouter(
           element={<RecipeDetail />}
         />
         <Route path="/recipes/detail/:id" element={<RecipeDetail />} />
-        <Route path="/movie-link" element={<MovieLink />} />
 
         <Route path="/contact-us" element={<ContactUs />} />
       </Route>
+      <Route path="/movie-link" element={<MovieLink />} />
+      <Route path="/watch-movie" element={<WatchMovie />} />
 
       <Route element={<AuthRedirect />}>
         <Route path="/admin/login" element={<Login />} />

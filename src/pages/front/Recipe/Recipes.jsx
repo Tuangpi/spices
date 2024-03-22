@@ -19,7 +19,7 @@ const Recipes = () => {
   }, []);
 
   return (
-    <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-8 gap-y-8 w-[90%] m-auto sm:w-[86%] mt-5 font-Montserrat">
+    <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-8 gap-y-8 w-[90%] m-auto sm:w-[86%] mt-5 font-Montserrat min-h-96">
       {recipes &&
         recipes.docs.map((recipe, index) => (
           <div
