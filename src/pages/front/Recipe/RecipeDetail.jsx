@@ -1,5 +1,6 @@
 import { Link, useParams } from "react-router-dom";
 import recepes1 from "../../../assets/1.jpg";
+import a from "../../../assets/a.png";
 import React, { useEffect, useState } from "react";
 import BreadCrumb from "../../../component/BreadCrumb";
 import { doc, getDoc } from "firebase/firestore";
@@ -34,9 +35,15 @@ const RecipeDetail = () => {
             <h2 className="font-semibold text-xl">{recipe.title}</h2>
             <p className="mt-2 mb-4">{recipe.firstParagraph}</p>
             {downloadLink && (
-              <Link to="/movie-link" state={downloadLink}>
-                Click Here
-              </Link>
+              <div className="flex justify-center items-center">
+                <Link
+                  to="/movie-link"
+                  state={downloadLink}
+                  className="flex justify-center items-center mb-8 animate-pulse bg-blue-100"
+                >
+                  <img src={a} alt="link" className="w-1/6 object-cover" />
+                </Link>
+              </div>
             )}
             <div className="aspect-video object-cover">
               <img

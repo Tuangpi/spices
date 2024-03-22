@@ -34,6 +34,14 @@ const AdminLayout = () => {
           </li>
           <li className="mb-4">
             <Link
+              to="/admin/movie-list"
+              className="block w-full py-2 px-4 text-gray-300 hover:text-white hover:bg-gray-700"
+            >
+              Movies
+            </Link>
+          </li>
+          <li className="mb-4">
+            <Link
               to="/admin/post-link"
               className="block w-full py-2 px-4 text-gray-300 hover:text-white hover:bg-gray-700"
             >

@@ -22,6 +22,8 @@ import MovieLink from "./pages/front/Recipe/MovieLink";
 import RequiredAuth from "./component/RequiredAuth";
 import NotFound from "./component/NotFound";
 import AuthRedirect from "./component/AuthRedirect";
+import UploadMovie from "./pages/admin/Movie/UploadMovie";
+import MovieList from "./pages/admin/Movie/MovieList";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -52,7 +54,9 @@ const router = createBrowserRouter(
         <Route path="/admin/" element={<AdminLayout />}>
           <Route path="dashboard" element={<Dashboard />} />
           <Route path="post-list" element={<PostList />} />
+          <Route path="movie-list" element={<MovieList />} />
           <Route path="create-post" element={<CreatePost />} />
+          <Route path="update-movie" element={<UploadMovie />} />
         </Route>
       </Route>
 

@@ -97,12 +97,18 @@ const PopularDishes = () => {
                 />
               </div>
               <div className="md:col-span-1 mt-3.5 md:mt-0">
+                <h2 className="text-lg font-semibold text-slate-700 mb-2">
+                  {content.title}
+                </h2>
                 <p>{content.content}</p>
               </div>
             </div>
           ) : (
             <div className="flex flex-col-reverse md:grid md:grid-cols-2 w-full gap-x-14  mt-6 md:mt-16">
               <div className="md:col-span-1 mt-3.5 md:mt-0">
+                <h2 className="text-lg font-semibold text-slate-700 mb-2">
+                  {content.title}
+                </h2>
                 <p>{content.content}</p>
               </div>
               <div className="flex items-center justify-center md:col-span-1">

@@ -4,6 +4,9 @@ import { db, storage } from "../../../firebase/firebase";
 import { useAuth } from "../../../component/AuthContext";
 import { addDoc, collection } from "firebase/firestore";
 import { ref, uploadBytes } from "firebase/storage";
+import { useNavigate } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBackward } from "@fortawesome/free-solid-svg-icons";
 
 const CreatePost = () => {
   const editor = useRef(null);
@@ -12,6 +15,7 @@ const CreatePost = () => {
   const [firstPara, setFirstPara] = useState("");
   const [featureImage, setFeatureImage] = useState(null);
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   const handleSave = (e) => {
     e.preventDefault();
@@ -38,6 +42,7 @@ const CreatePost = () => {
           });
       };
       reader.readAsArrayBuffer(featureImage);
+      navigate("/admin/post-list");
     }
   };
 
@@ -47,14 +52,18 @@ const CreatePost = () => {
 
   return (
     <>
-      <div className="mb-6 mt-3 text-xl font-semibold">Create Post</div>
-      <form>
+      <div className="p-2 mb-2 text-lg rounded-md font-semibold flex justify-between items-center">
+        <FontAwesomeIcon
+          icon={faBackward}
+          className="cursor-pointer"
+          onClick={() => window.history.back()}
+        />
+        <div> Create Post</div>
+      </div>
+      <form className="text-base">
         <div className="overflow-y-auto h-[28rem]">
           <div className="flex flex-col justify-center">
-            <label
-              htmlFor="file-input"
-              className="block text-lg font-medium mb-1.5"
-            >
+            <label htmlFor="file-input" className="block font-medium mb-1.5">
               Feature Image
             </label>
             <input
@@ -68,7 +77,7 @@ const CreatePost = () => {
             />
           </div>
           <div className="flex flex-col justify-center mt-4">
-            <label htmlFor="title" className="block text-lg font-medium mb-1.5">
+            <label htmlFor="title" className="block font-medium mb-1.5">
               Post Title
             </label>
             <input
@@ -83,7 +92,7 @@ const CreatePost = () => {
             />
           </div>
           <div className="flex flex-col justify-center mt-4">
-            <label htmlFor="first" className="block text-lg font-medium mb-1.5">
+            <label htmlFor="first" className="block font-medium mb-1.5">
               First Paragraph
             </label>
             <input
@@ -98,10 +107,7 @@ const CreatePost = () => {
             />
           </div>
           <div className="flex flex-col justify-center mt-4">
-            <label
-              htmlFor="content"
-              className="block text-lg font-medium mb-1.5"
-            >
+            <label htmlFor="content" className="block font-medium mb-1.5">
               Post Content
             </label>
             <JoditEditor
