@@ -1,10 +1,26 @@
 import { Link } from "react-router-dom";
 import hero from "../../../assets/hero.jpg";
 import Content from "./Content";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "../../../firebase/firebase";
 
 const Home = () => {
+  const [categories, setCategories] = useState(null);
+  const [loading, setLoading] = useState(false);
+
+  const getData = async () => {
+    const querySnapshot = await getDocs(collection(db, "categories"));
+    const items = [];
+    querySnapshot.docs.forEach((item) =>
+      items.push({ id: item.id, ...item.data() })
+    );
+    setCategories(items);
+    setLoading(false);
+  };
+
   useEffect(() => {
+    getData();
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
 
@@ -28,54 +44,16 @@ const Home = () => {
           Browse By Category
         </h3>
         <div className="grid grid-cols-1 gap-3 mt-6 md:mt-7 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-          <Link
-            to={`category/1`}
-            className="p-2 md:p-3 bg-secondary rounded-md flex justify-center items-center cursor-pointer border-none outline-none shadow-md hover:scale-105 hover:animate-pulse transition-all ease-in-out duration-1000 text-black"
-          >
-            Curries and Stews
-          </Link>
-          <Link
-            to="category/2"
-            className="p-2 md:p-3 bg-secondary rounded-md flex justify-center items-center cursor-pointer border-none outline-none shadow-md hover:scale-105 hover:animate-pulse transition-all ease-in-out duration-1000 text-black"
-          >
-            Noodles and Soups
-          </Link>
-          <Link
-            to="category/3"
-            className="p-2 md:p-3 bg-secondary rounded-md flex justify-center items-center cursor-pointer border-none outline-none shadow-md hover:scale-105 hover:animate-pulse transition-all ease-in-out duration-1000 text-black"
-          >
-            Salads and Appetizers
-          </Link>
-          <Link
-            to="category/4"
-            className="p-2 md:p-3 bg-secondary rounded-md flex justify-center items-center cursor-pointer border-none outline-none shadow-md hover:scale-105 hover:animate-pulse transition-all ease-in-out duration-1000 text-black"
-          >
-            Rice Dishes
-          </Link>
-          <Link
-            to="category/5"
-            className="p-2 md:p-3 bg-secondary rounded-md flex justify-center items-center cursor-pointer border-none outline-none shadow-md hover:scale-105 hover:animate-pulse transition-all ease-in-out duration-1000 text-black"
-          >
-            Street Food
-          </Link>
-          <Link
-            to="category/6"
-            className="p-2 md:p-3 bg-secondary rounded-md flex justify-center items-center cursor-pointer border-none outline-none shadow-md hover:scale-105 hover:animate-pulse transition-all ease-in-out duration-1000 text-black"
-          >
-            Desserts and Sweets
-          </Link>
-          <Link
-            to="category/6"
-            className="p-2 md:p-3 bg-secondary rounded-md flex justify-center items-center cursor-pointer border-none outline-none shadow-md hover:scale-105 hover:animate-pulse transition-all ease-in-out duration-1000 text-black"
-          >
-            Grilled and Fried Dishes
-          </Link>
-          <Link
-            to="category/6"
-            className="p-2 md:p-3 bg-secondary rounded-md flex justify-center items-center cursor-pointer border-none outline-none shadow-md hover:scale-105 hover:animate-pulse transition-all ease-in-out duration-1000 text-black"
-          >
-            Vegetarian and Vegan Options
-          </Link>
+          {categories &&
+            categories.map((category, index) => (
+              <Link
+                to={`category/${category.id}`}
+                key={index}
+                className="p-2 md:p-3 bg-secondary rounded-md flex justify-center items-center cursor-pointer border-none outline-none shadow-md hover:scale-105 hover:animate-pulse transition-all ease-in-out duration-1000 text-black"
+              >
+                {category.name}
+              </Link>
+            ))}
         </div>
       </section>
 

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, Outlet, useNavigate } from "react-router-dom";
 import { doSignOut } from "../firebase/auth";
+import { Toaster } from "react-hot-toast";
 
 const AdminLayout = () => {
   const [dropDown, setDropDown] = useState(false);
@@ -11,8 +12,8 @@ const AdminLayout = () => {
   };
 
   return (
-    <div className="flex items-start justify-between font-Montserrat text-sm">
-      <div className="sticky top-0 left-0 h-screen overflow-y-auto bg-gray-800 text-white hidden md:block md:w-1/4 lg:w-1/6 py-8 px-4">
+    <div className="flex items-start justify-between text-sm">
+      <div className="sticky top-0 left-0 h-screen overflow-y-auto bg-gray-800 text-white hidden md:block md:w-[14%] py-8 px-4">
         {/* Sidebar content */}
         <h1 className="text-2xl font-bold mb-8">Admin Panel</h1>
         <ul>
@@ -26,10 +27,18 @@ const AdminLayout = () => {
           </li>
           <li className="mb-4">
             <Link
-              to="/admin/post-list"
+              to="/admin/category-list"
               className="block w-full py-2 px-4 text-gray-300 hover:text-white hover:bg-gray-700"
             >
-              Post
+              Category
+            </Link>
+          </li>
+          <li className="mb-4">
+            <Link
+              to="/admin/recipes-list"
+              className="block w-full py-2 px-4 text-gray-300 hover:text-white hover:bg-gray-700"
+            >
+              Recipes
             </Link>
           </li>
           <li className="mb-4">
@@ -40,25 +49,22 @@ const AdminLayout = () => {
               Movies
             </Link>
           </li>
-          <li className="mb-4">
+          {/* <li className="mb-4">
             <Link
               to="/admin/post-link"
               className="block w-full py-2 px-4 text-gray-300 hover:text-white hover:bg-gray-700"
             >
               Post Link
             </Link>
-          </li>
+          </li> */}
         </ul>
       </div>
 
-      <div className="w-full md:w-3/4 lg:w-5/6 bg-white">
+      <div className="w-full md:w-[86%] bg-white">
         <nav className="flex justify-between items-center bg-white p-3.5 shadow">
-          <div>
-            {/* Logo */}
-            <Link to="/admin/dashboard" className="text-lg font-bold">
-              Your Logo
-            </Link>
-          </div>
+          <Link to="/" target="_blank" className="font-medium">
+            Visit to web site
+          </Link>
           <div>
             <div className="relative">
               <button
@@ -106,8 +112,25 @@ const AdminLayout = () => {
             </div>
           </div>
         </nav>
-
-        <div className="p-2 overflow-auto" onClick={() => setDropDown(false)}>
+        <Toaster
+          position="top-center"
+          toastOptions={{
+            duration: 3000,
+            style: {
+              background: "#D1D5DB",
+              color: "#444",
+            },
+            error: {
+              style: {
+                background: "#F43F5E",
+              },
+            },
+          }}
+        />
+        <div
+          className="p-2 overflow-auto bg-gray-100"
+          onClick={() => setDropDown(false)}
+        >
           <Outlet />
         </div>
       </div>

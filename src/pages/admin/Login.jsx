@@ -14,10 +14,12 @@ const Login = () => {
   const handleLogin = (e) => {
     e.preventDefault();
     setLoading(true);
-    doSignInWithEmailAndPassword(email, password).then((res) => {
-      setLoading(false);
-      navigate("/admin/dashboard");
-    });
+    doSignInWithEmailAndPassword(email, password)
+      .then((res) => {
+        setLoading(false);
+        navigate("/admin/dashboard");
+      })
+      .catch((err) => setLoading(false));
   };
 
   return (

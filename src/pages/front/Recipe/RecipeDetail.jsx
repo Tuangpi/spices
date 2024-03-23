@@ -5,15 +5,14 @@ import React, { useEffect, useState } from "react";
 import BreadCrumb from "../../../component/BreadCrumb";
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "../../../firebase/firebase";
-import Loading from "react-loading";
+import { BounceLoader } from "react-spinners";
 
 const RecipeDetail = () => {
   const { id, downloadLink } = useParams();
   const [recipe, setRecipe] = useState(null);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   const getData = async (id) => {
-    setLoading(true);
     const docRef = doc(db, "recipes", id);
     const docSnap = await getDoc(docRef);
 
@@ -55,7 +54,20 @@ const RecipeDetail = () => {
             <div dangerouslySetInnerHTML={{ __html: recipe.content }} />
           </>
         )}
-        {loading && <Loading type="spin" className="w-full text-red-500" />}
+        {loading && (
+          <div className="flex justify-between items-center">
+            <BounceLoader
+              color="#3e4edf"
+              loading={loading}
+              size={60}
+              cssOverride={{
+                display: "block",
+                margin: "auto",
+              }}
+              aria-label="Loading Spinner"
+            />
+          </div>
+        )}
       </>
     </section>
   );

@@ -14,8 +14,8 @@ import ContactUs from "./pages/front/ContactUs";
 import Login from "./pages/admin/Login";
 import AdminLayout from "./layout/AdminLayout";
 import Dashboard from "./pages/admin/Dashboard";
-import PostList from "./pages/admin/Post/PostList";
-import CreatePost from "./pages/admin/Post/CreatePost";
+import RecipesList from "./pages/admin/Recipes/RecipesList";
+import CreateRecipe from "./pages/admin/Recipes/CreateRecipe";
 import Recipes from "./pages/front/Recipe/Recipes";
 import RecipeDetail from "./pages/front/Recipe/RecipeDetail";
 import RequiredAuth from "./component/RequiredAuth";
@@ -25,6 +25,11 @@ import UploadMovie from "./pages/admin/Movie/UploadMovie";
 import MovieList from "./pages/admin/Movie/MovieList";
 import WatchMovie from "./pages/front/WatchMovie";
 import MovieLink from "./pages/front/MovieLink";
+import EditRecipe from "./pages/admin/Recipes/EditRecipe";
+import MoviePostLink from "./pages/admin/Movie/MoviePostLink";
+import CategoryList from "./pages/admin/Category/CategoryList";
+import CreateCategory from "./pages/admin/Category/CreateCategory";
+import EditCategory from "./pages/admin/Category/EditCategory";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -55,10 +60,15 @@ const router = createBrowserRouter(
       <Route element={<RequiredAuth />}>
         <Route path="/admin/" element={<AdminLayout />}>
           <Route path="dashboard" element={<Dashboard />} />
-          <Route path="post-list" element={<PostList />} />
+          <Route path="category-list" element={<CategoryList />} />
+          <Route path="create-category" element={<CreateCategory />} />
+          <Route path="category/edit" element={<EditCategory />} />
+          <Route path="recipes-list" element={<RecipesList />} />
+          <Route path="create-recipe" element={<CreateRecipe />} />
+          <Route path="recipe/edit" element={<EditRecipe />} />
           <Route path="movie-list" element={<MovieList />} />
-          <Route path="create-post" element={<CreatePost />} />
-          <Route path="update-movie" element={<UploadMovie />} />
+          <Route path="upload-movie" element={<UploadMovie />} />
+          <Route path="movie-post-link/add" element={<MoviePostLink />} />
         </Route>
       </Route>
 
