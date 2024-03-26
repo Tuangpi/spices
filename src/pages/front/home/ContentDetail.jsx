@@ -1,7 +1,5 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import ads1 from "../../../assets/ads1.gif";
-import ads2 from "../../../assets/ads2.gif";
 
 const ContentDetail = () => {
   const location = useLocation();

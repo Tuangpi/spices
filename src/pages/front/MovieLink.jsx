@@ -1,19 +1,15 @@
 import { Link, useLocation } from "react-router-dom";
+import Ads from "../../component/Ads";
 
 const MovieLink = () => {
   const { state } = useLocation();
-  console.log(state);
 
   return (
     <div className="bg-white">
       <section className="min-h-screen flex flex-col w-11/12 sm:w-4/5 md:w-2/3 lg:w-1/2 gap-x-3 m-auto bg-secondary rounded-md py-8">
         <div className="text-center">
           <h2 className="text-xl font-medium mb-4">Advertisement</h2>
-          <img
-            src="https://via.placeholder.com/400x200"
-            alt="Advertisement"
-            className="mx-auto"
-          />
+          <Ads dataAdSlot="3740901430" />
         </div>
         {state && (
           <div className="w-1/2 m-auto">

@@ -1,4 +1,4 @@
-import { Link, Outlet, useNavigate } from "react-router-dom";
+import { NavLink, Outlet, useNavigate } from "react-router-dom";
 import humburger from "../assets/humburger.svg";
 import close from "../assets/close.svg";
 import { useState } from "react";
@@ -38,21 +38,46 @@ const FrontLayout = () => {
       </div>
       <div className="py-2 lg:py-1.5 bg-secondary hidden sm:block sm:sticky top-0 z-50 mt-8">
         <div className="flex justify-center items-center gap-x-0 md:gap-x-3 w-full m-auto uppercase text-[13px] md:text-sm font-medium py-2.5">
-          <Link to="/" className="cursor-pointer px-4">
+          <NavLink
+            to="/"
+            className={({ isActive }) =>
+              isActive == true ? " text-slate-500 px-4" : " text-slate-700 px-4"
+            }
+          >
             Home
-          </Link>
-          <Link to="/about" className="cursor-pointer px-4">
+          </NavLink>
+          <NavLink
+            to="/about"
+            className={({ isActive }) =>
+              isActive == true ? " text-slate-500 px-4" : " text-slate-700 px-4"
+            }
+          >
             About Myanmar Spices
-          </Link>
-          <Link to="/popular-dishes" className="cursor-pointer px-4">
+          </NavLink>
+          <NavLink
+            to="/popular-dishes"
+            className={({ isActive }) =>
+              isActive == true ? " text-slate-500 px-4" : " text-slate-700 px-4"
+            }
+          >
             Popular Dishes
-          </Link>
-          <Link to="/recipes" className="cursor-pointer px-4">
+          </NavLink>
+          <NavLink
+            to="/recipes"
+            className={({ isActive }) =>
+              isActive == true ? " text-slate-500 px-4" : " text-slate-700 px-4"
+            }
+          >
             Recipes
-          </Link>
-          <Link to="/contact-us" className="cursor-pointer px-4">
+          </NavLink>
+          <NavLink
+            to="/contact-us"
+            className={({ isActive }) =>
+              isActive == true ? " text-slate-500 px-4" : " text-slate-700 px-4"
+            }
+          >
             Contact Us
-          </Link>
+          </NavLink>
           {/* <div className="hidden lg:block">
               <div className="flex items-center justify-center">
                 <input

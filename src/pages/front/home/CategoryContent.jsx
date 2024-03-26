@@ -2,8 +2,6 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import pic1 from "../../../assets/1.webp";
 import pic2 from "../../../assets/2.webp";
-import pic4 from "../../../assets/test.jpeg";
-import test from "../../../assets/test.jpeg";
 import BreadCrumb from "../../../component/BreadCrumb";
 
 const CategoryContent = () => {
@@ -41,7 +39,7 @@ const CategoryContent = () => {
           className="bg-slate-50 rounded-b-md border border-slate-100 shadow-md cursor-pointer hover:border-slate-200 hover:scale-105 transition-all ease-in duration-200"
           onClick={() => navigate("/recipes/detail/" + 1)}
         >
-          <img src={pic4} className="aspect-video object-cover" />
+          <img src={pic1} className="aspect-video object-cover" />
           <p className="pl-3 text-xs font-medium uppercase text-slate-600 pt-3">
             Category Name
           </p>
@@ -51,7 +49,7 @@ const CategoryContent = () => {
           className="bg-slate-50 rounded-b-md border border-slate-100 shadow-md cursor-pointer hover:border-slate-200 hover:scale-105 transition-all ease-in duration-200"
           onClick={() => navigate("/recipes/detail/" + 1)}
         >
-          <img src={test} className="aspect-video object-cover" />
+          <img src={pic1} className="aspect-video object-cover" />
           <p className="pl-3 text-xs font-medium uppercase text-slate-600 pt-3">
             Category Name
           </p>
@@ -61,7 +59,7 @@ const CategoryContent = () => {
           className="bg-slate-50 rounded-b-md border border-slate-100 shadow-md cursor-pointer hover:border-slate-200 hover:scale-105 transition-all ease-in duration-200"
           onClick={() => navigate("/recipes/detail/" + 1)}
         >
-          <img src={pic4} className="aspect-video object-cover" />
+          <img src={pic2} className="aspect-video object-cover" />
           <p className="pl-3 text-xs font-medium uppercase text-slate-600 pt-3">
             Category Name
           </p>

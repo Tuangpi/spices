@@ -1,8 +1,6 @@
 import React from "react";
 import pic1 from "../../../assets/1.webp";
 import pic2 from "../../../assets/2.webp";
-import pic4 from "../../../assets/test.jpeg";
-import test from "../../../assets/test.jpeg";
 import { Link } from "react-router-dom";
 
 const Content = () => {
@@ -27,7 +25,7 @@ const Content = () => {
     },
     {
       id: 3,
-      img: test,
+      img: pic1,
       title: "Ohn No Khao Swè",
       content:
         "This is a comforting and flavorful coconut chicken noodle soup served with yellow egg noodles, tender chicken pieces, and garnished with fried garlic, cilantro, and lime. It’s a popular dish enjoyed across Myanmar.",
@@ -36,7 +34,7 @@ const Content = () => {
     },
     {
       id: 4,
-      img: pic4,
+      img: pic2,
       title: "Shan Noodles",
       content:
         "Originating from the Shan State in eastern Myanmar, Shan noodles are a beloved dish consisting of thin rice noodles topped with a savory meat sauce made from minced pork or chicken, tomatoes, garlic, and chili oil. It’s often served with a side of fresh herbs and lime.",
@@ -45,7 +43,7 @@ const Content = () => {
     },
     {
       id: 5,
-      img: pic2,
+      img: pic1,
       title: "Burmese Biryani",
       content:
         "Burmese Biryani reflects the influence of Indian cuisine in Myanmar. It features fragrant long-grain rice cooked with spices, tender chunks of meat (often chicken or mutton), and garnished with crispy fried onions, boiled eggs, and fresh cucumber slices.",
@@ -63,7 +61,7 @@ const Content = () => {
     },
     {
       id: 7,
-      img: pic2,
+      img: pic1,
       title: "Nan Gyi Thoke (Rice Noodle Salad)",
       content:
         "Nan Gyi Thoke is a hearty and satisfying noodle salad made with thick rice noodles tossed in a flavorful sauce made from tamarind, fish sauce, and chili, mixed with shredded chicken, crispy fried onions, crushed peanuts, and lime.",
@@ -93,7 +91,7 @@ const Content = () => {
                   className="rounded-md w-full"
                 />
               </div>
-              <div className="self-start sm:col-span-8 md:col-span-9">
+              <div className="self-start sm:col-span-8 md:col-span-6">
                 <h3 className="my-2.5 sm:mt-0 mt-4 font-medium text-xl">
                   {content.title}
                 </h3>
@@ -106,8 +104,9 @@ const Content = () => {
                   Read More
                 </Link>
               </div>
+              <div className="md:col-span-3">ads</div>
             </div>
-            <div className="w-full bg-slate-100 h-0.5 rounded-full my-6"></div>
+            <div className="w-3/4 bg-slate-100 h-0.5 rounded-full my-6"></div>
           </React.Fragment>
         ))}
     </section>

@@ -4,12 +4,12 @@ import { getFirestore } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyAG4uMdPWixg-13H1fKjINleZSAnfbREHw",
-    authDomain: "myanmarspice.firebaseapp.com",
-    projectId: "myanmarspice",
-    storageBucket: "myanmarspice.appspot.com",
-    messagingSenderId: "169766726308",
-    appId: "1:169766726308:web:45e02b4aa2a9216b4c5431"
+    apiKey: "AIzaSyBuhJavPsGCsAulWJzefa-4AhrBu3PC4_E",
+    authDomain: "spice-of-myanmar-9d53a.firebaseapp.com",
+    projectId: "spice-of-myanmar-9d53a",
+    storageBucket: "spice-of-myanmar-9d53a.appspot.com",
+    messagingSenderId: "606295769180",
+    appId: "1:606295769180:web:2ce20e5fe047dac2df2699"
 };
 
 const app = initializeApp(firebaseConfig);
